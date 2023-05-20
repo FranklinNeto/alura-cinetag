@@ -10,8 +10,8 @@ function Header() {
         <img src={logo} alt="logo da cinetag" />
       </Link>
       <nav>
-        <HeaderLink to="/">Home</HeaderLink>
-        <HeaderLink to="/favoritos">Favoritos</HeaderLink>
+        <HeaderLink url="/">Home</HeaderLink>
+        <HeaderLink url="/favorites">Favoritos</HeaderLink>
       </nav>
     </header>
   );
