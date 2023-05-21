@@ -1,26 +1,21 @@
-import FavoritesProvider from "contexts/FavoritesContext";
-import Container from "components/Container";
-import Footer from "components/Footer";
-import Header from "components/Header";
 import Favorites from "pages/Favorites";
 import Initial from "pages/Initial";
 import Player from "pages/Player";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from "pages/NotFound";
+import MainPage from "pages/MainPage";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
-      <Header />
-      <Container>
-        <FavoritesProvider>
-          <Routes>
-            <Route path="/" element={<Initial />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/:id" element={<Player />} />
-          </Routes>
-        </FavoritesProvider>
-      </Container>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<MainPage />}>
+          <Route index element={<Initial />} />
+          <Route path="favorites" element={<Favorites />} />
+          <Route path=":id" element={<Player />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
